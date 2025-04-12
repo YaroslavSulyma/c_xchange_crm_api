@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:12.2-alpine
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 127.0.0.1:${DB_PORT}:5432
+    volumes:
+      - ../pgdata/${DB_NAME}_development:/var/lib/postgresql/data

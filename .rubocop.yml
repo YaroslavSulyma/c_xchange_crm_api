@@ -1,0 +1,46 @@
+# Omakase Ruby styling for Rails
+inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+
+# Overwrite or add rules to create your own house style
+#
+# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
+# Layout/SpaceInsideArrayLiteralBrackets:
+#   Enabled: false
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+    attributes:
+      - attribute
+      - attr_reader
+      - attr_writer
+      - attr_accessor
+    associations:
+      - has_one
+      - has_many
+      - belongs_to
+      - has_and_belongs_to_many
+    validations:
+      - validate
+      - validates_presence_of
+      - validates_uniqueness_of
+    hooks:
+      - after_save
+      - after_create
+      - after_initialize
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - attributes
+    - associations
+    - validations
+    - hooks
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_methods
+    - private_methods
