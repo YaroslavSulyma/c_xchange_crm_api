@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_12_141248) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_12_141809) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -30,6 +30,28 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_12_141248) do
     t.index ["name"], name: "index_platforms_on_name", unique: true
   end
 
+  create_table "trades", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "platform_id", null: false
+    t.uuid "currency_id", null: false
+    t.uuid "fiat_currency_id", null: false
+    t.integer "direction", null: false
+    t.decimal "amount", precision: 15, scale: 8, null: false
+    t.decimal "price", precision: 15, scale: 8, null: false
+    t.decimal "total", precision: 20, scale: 4, null: false
+    t.decimal "fee", precision: 15, scale: 4, default: "0.0", null: false
+    t.date "traded_at", default: -> { "now()" }, null: false
+    t.string "notes", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["currency_id"], name: "index_trades_on_currency_id"
+    t.index ["direction"], name: "index_trades_on_direction"
+    t.index ["fiat_currency_id"], name: "index_trades_on_fiat_currency_id"
+    t.index ["platform_id"], name: "index_trades_on_platform_id"
+    t.index ["traded_at"], name: "index_trades_on_traded_at"
+    t.index ["user_id"], name: "index_trades_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
@@ -37,4 +59,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_12_141248) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
+
+  add_foreign_key "trades", "currencies"
+  add_foreign_key "trades", "currencies", column: "fiat_currency_id"
+  add_foreign_key "trades", "platforms"
+  add_foreign_key "trades", "users"
 end
