@@ -1,24 +1,36 @@
-# README
+# 🚀 CryptoP2P Tracker API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> 🔐 API-only Rails app to track P2P crypto trades, view statistics, and calculate real profit in fiat and crypto 💸
 
-Things you may want to cover:
+## 🎯 Project Goals
 
-* Ruby version
+- 📌 Track peer-to-peer crypto transactions (buy/sell)
+- 📊 Generate useful trading statistics
+- 💰 Calculate net profit/loss over time
+- 🌐 Support multi-platform and multi-currency tracking
+- ⚡ Provide fast and secure JSON API for future integrations
 
-* System dependencies
+## 🛠️ Tech Stack
 
-* Configuration
+- **Ruby**: 3.4.2
+- **Rails**: 8.0.2 (API-only mode)
+- **Database**: PostgreSQL
+- **Architecture**: JSON API, Token-based Auth, Service Objects, Clean Structure
 
-* Database creation
+## 🧭 Roadmap
 
-* Database initialization
+- [x] Project structure & setup
+- [ ] Trade model with core fields
+- [ ] Profit calculation logic
+- [ ] Statistics endpoint
+- [ ] Auth system (JWT or OAuth)
+- [ ] Exchange sync (Binance P2P, etc.)
 
-* How to run the test suite
+## 🤝 Contribution
 
-* Services (job queues, cache servers, search engines, etc.)
+> Not ready for public contributions yet — but stay tuned! 😎
 
-* Deployment instructions
+## 📜 License
 
-* ...
+MIT License — free for personal & commercial use.
+
