@@ -26,6 +26,7 @@ gem "jwt_sessions", "~> 3.2.4"
 gem "interactor", "~> 3.1.2"
 gem "dry-validation", "~> 1.11.1"
 gem "bcrypt", "~> 3.1.20"
+gem "pagy", "~> 9.3.4"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 

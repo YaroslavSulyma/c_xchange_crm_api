@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     post :sign_in, controller: :sessions, action: :create
     delete :sign_out, controller: :sessions, action: :destroy
     post :refresh_token, controller: :sessions, action: :update
+
+    resources :trades, only: [ :index, :create, :update, :destroy ]
   end
 end
