@@ -9,7 +9,7 @@ module V1
         optional(:amount).maybe(:decimal, gt?: 0)
         optional(:price).maybe(:decimal, gt?: 0)
         optional(:total).maybe(:decimal, gt?: 0)
-        optional(:fee).maybe(:decimal, gt?: 0)
+        optional(:fee).maybe(:decimal, gteq?: 0)
         optional(:notes).maybe(:string)
       end
     end
