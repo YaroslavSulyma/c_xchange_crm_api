@@ -1,6 +1,5 @@
 module V1
   class SessionsController < ApplicationController
-    include JWTSessions::RailsAuthorization
     before_action :authorize_refresh_by_access_header!, only: :update
     before_action :authorize_by_access_header!, only: :destroy
 
