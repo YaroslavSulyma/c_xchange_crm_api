@@ -1,7 +1,7 @@
 module V1
   class TradesController < V1::AuthorizedController
     def index
-      result = V1::Trades::Create::Organizer.call!(input_params: index_params)
+      result = V1::Trades::Index::Organizer.call!(input_params: index_params)
       render json: result.data, status: result.status_code
     end
 
@@ -11,7 +11,7 @@ module V1
     end
 
     def update
-      result = V1::Trades::Update::Organizer.call!(input_params: update_params)
+      result = V1::Trades::Update::Organizer.call!(record_id: params[:id], input_params: update_params)
       head result.status_code
     end
 
@@ -27,7 +27,7 @@ module V1
     end
 
     def create_params
-      params.require(:transaction).permit(
+      params.require(:trade).permit(
         :platform_id, :currency_id, :fiat_currency_id, :direction, :amount, :price, :total, :fee, :notes
       )
     end

@@ -9,7 +9,7 @@ module V1
         required(:amount).filled(:decimal, gt?: 0)
         required(:price).filled(:decimal, gt?: 0)
         required(:total).filled(:decimal, gt?: 0)
-        required(:fee).filled(:decimal, gt?: 0)
+        required(:fee).filled(:decimal, gteq?: 0)
         optional(:notes).maybe(:string)
       end
     end
