@@ -20,10 +20,10 @@
 ## 🧭 Roadmap
 
 - [x] Project structure & setup
-- [ ] Trade model with core fields
+- [x] Trade model with core fields
 - [ ] Profit calculation logic
 - [ ] Statistics endpoint
-- [ ] Auth system (JWT or OAuth)
+- [x] Auth system (JWT or OAuth)
 - [ ] Exchange sync (Binance P2P, etc.)
 
 ## 🤝 Contribution
