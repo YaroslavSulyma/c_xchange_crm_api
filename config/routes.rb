@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     post :refresh_token, controller: :sessions, action: :update
 
     resources :trades, only: [ :index, :create, :update, :destroy ]
+    resources :currencies, only: [ :index ]
+    resources :platforms, only: [ :index ]
   end
 end
