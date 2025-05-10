@@ -1,0 +1,26 @@
+:concurrency: 5
+production:
+  :concurrency: 10
+:verbose: true
+:queues:
+  - critical
+  - default
+  - low
+:timeout: 8
+:pidfile: tmp/pids/sidekiq.pid
+:logfile: log/sidekiq.log
+
+:scheduler:
+  :schedule:
+    sync_by_bit_buy_trades_every_2h:
+      cron: "0 */2 * * *"
+      class: "Integration::ByBit::P2p::TradeOrdersSyncJob"
+      args: ['buy']
+      queue: default
+      description: "Sync Bybit [buy] trades every 2 hours"
+    sync_by_bit_sell_trades_every_2h:
+      cron: "0 */2 * * *"
+      class: "Integration::ByBit::P2p::TradeOrdersSyncJob"
+      args: ['sell']
+      queue: default
+      description: "Sync Bybit [sell] trades every 2 hours"

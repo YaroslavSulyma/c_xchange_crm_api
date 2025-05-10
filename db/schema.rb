@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_12_141809) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_10_194339) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -44,11 +44,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_12_141809) do
     t.string "notes", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "uid", null: false
     t.index ["currency_id"], name: "index_trades_on_currency_id"
     t.index ["direction"], name: "index_trades_on_direction"
     t.index ["fiat_currency_id"], name: "index_trades_on_fiat_currency_id"
     t.index ["platform_id"], name: "index_trades_on_platform_id"
     t.index ["traded_at"], name: "index_trades_on_traded_at"
+    t.index ["uid"], name: "index_trades_on_uid", unique: true
     t.index ["user_id"], name: "index_trades_on_user_id"
   end
 
