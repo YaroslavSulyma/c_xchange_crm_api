@@ -36,3 +36,4 @@
 /.idea/
 /.vscode/
 /docker-compose.yaml
+/node_modules/
