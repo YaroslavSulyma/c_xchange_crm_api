@@ -24,7 +24,7 @@ gem "solid_cable"
 gem "faraday", "~> 2.13.1"
 gem "oj", "~> 3.16.9"
 
-gem "sidekiq-scheduler", "~> 5.0.6"
+gem "sidekiq-scheduler", "~> 6.0.1"
 
 gem "redis", "~> 5.4.0"
 gem "jwt_sessions", "~> 3.2.4"
