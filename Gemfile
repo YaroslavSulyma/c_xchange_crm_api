@@ -22,7 +22,7 @@ gem "solid_queue"
 gem "solid_cable"
 
 gem "faraday", "~> 2.13.1"
-gem "oj", "~> 3.16.9"
+gem "oj", "~> 3.16.11"
 
 gem "sidekiq-scheduler", "~> 5.0.6"
 
