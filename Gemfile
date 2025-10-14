@@ -56,6 +56,6 @@ group :development, :test do
   gem "traceroute", "~> 0.8.1", require: false
   gem "rubocop-rails-omakase", require: false
   gem "dotenv-rails", "~> 3.1.8"
-  gem "strong_migrations", "~> 2.3.0", require: false
+  gem "strong_migrations", "~> 2.5.1", require: false
   gem "fasterer", "~> 0.11.0", require: false
 end
